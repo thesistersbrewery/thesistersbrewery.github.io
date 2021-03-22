@@ -228,10 +228,11 @@ var beersDB = {
     hexImageUrl: "imgs/hexes/yellow_hex.png",
     order: 12,
   },
-	pchela: {
+  pchela: {
     name: "Pchela",
     urlName: "pchela",
-    new: true,
+    limited: true,
+    new: false,
     shortDesc:
       "A deep black and powerful Russian Imperial Stout with a creamy dark foam head. Strong roasted complex aroma and taste. Silky mouthfeel with notes of chocolate, coffee, burnt grain and dark fruits.",
     longDesc: "",
