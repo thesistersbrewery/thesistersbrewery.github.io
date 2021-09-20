@@ -1,4 +1,5 @@
 /// <reference path="C:\Apps\GitHub\sistersbrewing\js\beersdb.js" />
+/// <reference path="C:\Apps\GitHub\sistersbrewing\js\access.js" />
 /// <reference path="C:\Apps\Dropbox\Dev\typings\angularjs\angular.d.ts" />
 
 // window.fbAsyncInit = function () {
@@ -415,9 +416,9 @@ var brewery = false;
         facebookService
           .FBCall(
             "/thesistersbrewery/events?fields=cover,name,start_time,description,place&access_token=" +
-              atob(
-                "RUFBT1VrVUp3VWY0QkFQRUpkaG5VbUcxY0NRZW9pWkFoalA0dE1aQkR3RmE1a2JFVnJhd3FaQ1c3MFpCTmJqVDZNM1pDQkNidkZFaUNuZ1B4SFFXUDdLMzVwZjR6ZklTUDBzU2lRcnhOSEdCT0I0SXBPYlZLUVlzQ2RsckZpWkJwVm1nY1haQ2dLZ09jWTFRcUNqbXBFNE9aQ2UxaWE0WkM4RGVFWkQ="
-              )
+            atob(
+              access
+            )
           )
           .then(function (response) {
             //console.log(response);
@@ -439,9 +440,9 @@ var brewery = false;
         facebookService
           .FBCall(
             "/thesistersbrewery/posts?fields=picture,place,full_picture,message,story,created_time&limit=12&access_token=" +
-              atob(
-                "RUFBT1VrVUp3VWY0QkFQRUpkaG5VbUcxY0NRZW9pWkFoalA0dE1aQkR3RmE1a2JFVnJhd3FaQ1c3MFpCTmJqVDZNM1pDQkNidkZFaUNuZ1B4SFFXUDdLMzVwZjR6ZklTUDBzU2lRcnhOSEdCT0I0SXBPYlZLUVlzQ2RsckZpWkJwVm1nY1haQ2dLZ09jWTFRcUNqbXBFNE9aQ2UxaWE0WkM4RGVFWkQ="
-              )
+            atob(
+              access
+            )
           )
           .then(function (response) {
             //console.log(response);
@@ -508,8 +509,8 @@ var brewery = false;
           $http
             .get(
               "https://api.untappd.com/v4/beer/checkins/" +
-                beerID +
-                "?client_id=43158D6116E0305CADB971CC65769720271E6D6A&client_secret=E1E244AD4D1699C1D3BE949A89EFE7B51E0BE0D5"
+              beerID +
+              "?client_id=43158D6116E0305CADB971CC65769720271E6D6A&client_secret=E1E244AD4D1699C1D3BE949A89EFE7B51E0BE0D5"
             )
             .then(function (data, status, headers, config) {
               //add checkin info
@@ -587,15 +588,15 @@ var brewery = false;
       if (
         $scope.brewery.beersById != null &&
         $scope.brewery.beersById[beersDB[selectedbeer].untappdId].checkinData ==
-          null
+        null
       ) {
         var beerID = beersDB[selectedbeer].untappdId;
 
         $http
           .get(
             "https://api.untappd.com/v4/beer/checkins/" +
-              beerID +
-              "?client_id=43158D6116E0305CADB971CC65769720271E6D6A&client_secret=E1E244AD4D1699C1D3BE949A89EFE7B51E0BE0D5"
+            beerID +
+            "?client_id=43158D6116E0305CADB971CC65769720271E6D6A&client_secret=E1E244AD4D1699C1D3BE949A89EFE7B51E0BE0D5"
           )
           .then(function (data, status, headers, config) {
             //add checkin info
@@ -612,7 +613,7 @@ var brewery = false;
 
   angular
     .module("SistersBrewApp")
-    .controller("AboutController", function ($scope, $routeParams, $http) {});
+    .controller("AboutController", function ($scope, $routeParams, $http) { });
 
   angular
     .module("SistersBrewApp")
@@ -622,11 +623,11 @@ var brewery = false;
 
   angular
     .module("SistersBrewApp")
-    .controller("ContactController", function ($scope, $routeParams, $http) {});
+    .controller("ContactController", function ($scope, $routeParams, $http) { });
 
   angular
     .module("SistersBrewApp")
-    .controller("IndexController", function ($scope, $routeParams, $http) {});
+    .controller("IndexController", function ($scope, $routeParams, $http) { });
 
   angular.module("SistersBrewApp").directive("sbBeerHex", function () {
     return {
